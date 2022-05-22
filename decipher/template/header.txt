@@ -1,0 +1,12 @@
+*hoon-runes.txt*  Syntax and semantics for Hoon's rune system
+
+           -------------------------------------------------------
+                            HOON RUNES REFERENCE
+           -------------------------------------------------------
+
+Author: ~talfus-laddus
+Repository: https://git.sr.ht/~matthias_schaub/hoon-runes.vim
+License: MIT License
+Updated: $today
+
+Runes are a way to form expressions in Hoon.
