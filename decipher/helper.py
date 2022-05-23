@@ -39,7 +39,7 @@ def parse_html_table(text: str) -> str:
             for row in parser.table[1:]:
                 form = row[0]
                 syntax = textwrap.indent(row[1], "    ")
-                rows_formatted.append(f"{form}: >\n{syntax}\n<\n")
-            return "".join(rows_formatted)
+                rows_formatted.append(f"{form}: >\n{syntax}\n<")
+            return "\n".join(rows_formatted)
         case _:
             raise ValueError("HTML is not the expected table.")
