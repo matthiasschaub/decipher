@@ -2,7 +2,7 @@ from datetime import datetime
 
 from marko import Markdown
 
-from decipher.helper import extract_rune_name, parse_as_tag
+from decipher.helper import clean_markdown, extract_rune_name, parse_as_tag
 from decipher.template import template
 from decipher.vimdoc_renderer import VimDocRenderer
 
@@ -18,6 +18,7 @@ def run(text):
         name_tag=name_tag,
         rune_tag=rune_tag,
     )
+    content = clean_markdown(content)
     markdown = Markdown(renderer=VimDocRenderer)
     return heading + markdown(content).replace("\n>", ">")
 

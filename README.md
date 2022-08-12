@@ -9,7 +9,7 @@ Reach out to `~talfus-laddus` on Urbit for anything related to this tool.
 ## Installation
 
 ```
-pipx install git+https://git.sr.ht/~matthias_schaub/decipher
+pipx install git+https://git.sr.ht/~talfus-laddus/decipher
 ```
 
 ## Usage
