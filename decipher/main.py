@@ -25,18 +25,19 @@ def run(text):
 
 def run_for_all_rune_files():
     file_names = (
-        "dot.md",
-        "zap.md",
-        "tis.md",
-        "wut.md",
         "bar.md",
-        "lus.md",
-        "col.md",
-        "cen.md",
-        "ket.md",
         "buc.md",
+        "cen.md",
+        "col.md",
+        "dot.md",
+        "fas.md",
+        "ket.md",
+        "lus.md",
         "mic.md",
         "sig.md",
+        "tis.md",
+        "wut.md",
+        "zap.md",
         "terminators.md",
     )
     temp = template.get_header()
