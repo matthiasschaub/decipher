@@ -1,4 +1,4 @@
-# Decipher Hoon Runes
+# Decipher Hoon Runes and Standard Library
 
 A tool to convert Markdown documentation files of Hoon Runes and Standard Library found at the [developers.urbit.org](https://developers.urbit.org) site to Vim help files.
 
