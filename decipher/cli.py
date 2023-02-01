@@ -27,5 +27,5 @@ def rune(type, input, output):
 @click.argument("input", type=click.Path(path_type=Path), required=True)
 @click.argument("output", type=click.File("w"), default="-")
 def all_runes(type, input, output):
-    """Decipher all markdown files in current directory."""
+    """Decipher all markdown files in a directory."""
     output.write(main.run_all(type, input))

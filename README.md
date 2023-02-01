@@ -1,8 +1,8 @@
 # Decipher Hoon Runes
 
-A tool to convert Markdown documentation files of Hoon Runes found at the [developers.urbit.org](https://developers.urbit.org) site to Vim help files.
+A tool to convert Markdown documentation files of Hoon Runes and Standard Library found at the [developers.urbit.org](https://developers.urbit.org) site to Vim help files.
 
-For the result see [hoon-runes.vim](https://git.sr.ht/~talfus-laddus/hoon-runes.vim).
+For the result see [hoon-runes.vim](https://git.sr.ht/~talfus-laddus/hoon-runes.vim) and [hoon-stdlib.vim](https://git.sr.ht/~talfus-laddus/hoon-stdlib.vim).
 
 Reach out to `~talfus-laddus` on Urbit for anything related to this tool.
 
@@ -15,7 +15,7 @@ pipx install git+https://git.sr.ht/~talfus-laddus/decipher
 ## Usage
 
 ```
-$ decipher
+$ decipher --help
 Usage: decipher [OPTIONS] COMMAND [ARGS]...
 
 Options:
@@ -24,21 +24,20 @@ Options:
   --help                Show this message and exit.
 
 Commands:
-  all-runes  Decipher all pre-defined rune documentation markdown files...
-  rune       Decipher a single rune documentation markdown file.
+  run      Decipher a single markdown file.
+  run-all  Decipher all markdown files in a directory.
 ```
 
 A single markdown file:
 
 ```
-$ decipher rune bar.md
+$ decipher run --type rune bar.md
 ```
 
-All markdown files in current directory.
+All markdown files in a directory.
 
 ```
-$ cd urbit.org/content/docs/hoon/reference/rune/
-$ decipher all-runes
+$ decipher run-all --type rune .
 ```
 
 The name (runes) and order of those files are hard-coded.

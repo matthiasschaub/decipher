@@ -17,7 +17,7 @@ from decipher.vimdoc_renderer import VimDocRendererRune, VimDocRendererStdlib
 
 
 def run(type_: Literal["rune", "stdlib"], text):
-    _, metadata, content = text.split("+++", maxsplit=3)
+    _, metadata, content = text.split("+++", maxsplit=2)
     title = extract_title(metadata)
     match type_:
         case "rune":
