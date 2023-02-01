@@ -1,0 +1,10 @@
+*hoon-stdlib.txt*  Documentation for the Hoon standard library
+
+           -------------------------------------------------------
+                       HOON STANDARD LIBRARY REFERENCE
+           -------------------------------------------------------
+
+Author: ~talfus-laddus
+Repository: https://git.sr.ht/~matthias_schaub/hoon-stdlib.vim
+License: MIT License
+Updated: $today

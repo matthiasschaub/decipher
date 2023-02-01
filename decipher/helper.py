@@ -5,13 +5,17 @@ from warnings import warn
 from decipher.html_table_parser import TableHTMLParser
 
 
-def extract_rune_name(metadata: str) -> Tuple[str, str]:
-    """Extract rune and name from metadata (font matters)"""
+def extract_title(metadata: str) -> Tuple[str, str]:
+    """Extract title from metadata (font matters)."""
     for line in metadata.split("\n"):
         if line.startswith("title"):
             title_line = line
     _, title = title_line.split("=", maxsplit=1)
-    title = remove_chars(title)
+    return remove_chars(title)
+
+
+def extract_rune_name(title: str) -> Tuple[str, str]:
+    """Extract rune and name from title."""
     *_, rune, name = title.split(" ")
     return rune, name
 

@@ -1,5 +1,6 @@
 import logging
 import textwrap
+from abc import abstractmethod
 from typing import Any, cast
 
 from marko.renderer import Renderer
@@ -50,26 +51,9 @@ class VimDocRenderer(Renderer):
     def render_thematic_break(self, element: "block.ThematicBreak") -> str:
         return ""
 
+    @abstractmethod
     def render_heading(self, element: "block.Heading") -> str:
-        if element.level == 1:
-            return ""
-        elif element.level == 2:
-            temp = template.get_heading(level=2)
-            # Is it a "rune" or "overview"?
-            if len(self.render_children(element).split(" ")) == 1:
-                return self.render_children(element) + "~\n"
-            rune_raw, name_raw, *_ = self.render_children(element).split(" ")
-            rune = helper.remove_chars(rune_raw)
-            name = helper.remove_chars(name_raw)
-            rune_tag = helper.parse_as_tag(rune)
-            name_tag = helper.parse_as_tag(name)
-            return temp.substitute(
-                name_upper=name.upper(),
-                name_tag=name_tag,
-                rune_tag=rune_tag,
-            )
-        else:
-            return self.render_children(element) + "~\n"
+        pass
 
     def render_setext_heading(self, element: "block.SetextHeading") -> str:
         if element.level > 4:
@@ -126,3 +110,38 @@ class VimDocRenderer(Renderer):
 
     def render_code_span(self, element: "inline.CodeSpan") -> str:
         return "`{0}`".format(element.children)
+
+
+class VimDocRendererRune(VimDocRenderer):
+    def render_heading(self, element: "block.Heading") -> str:
+        if element.level == 1:
+            return ""
+        elif element.level == 2:
+            temp = template.get_heading(level=2)
+            # Is it a "rune" or "overview"?
+            if len(self.render_children(element).split(" ")) == 1:
+                return self.render_children(element) + "~\n"
+            rune_raw, name_raw, *_ = self.render_children(element).split(" ")
+            rune = helper.remove_chars(rune_raw)
+            name = helper.remove_chars(name_raw)
+            rune_tag = helper.parse_as_tag(rune)
+            head_tag = helper.parse_as_tag(name)
+            head = name.upper()
+            return temp.substitute(head=head, head_tag=head_tag, rune_tag=rune_tag)
+        else:
+            return self.render_children(element) + "~\n"
+
+
+class VimDocRendererStdlib(VimDocRenderer):
+    def render_heading(self, element: "block.Heading") -> str:
+        if element.level == 1:
+            return ""
+        elif element.level == 2:
+            temp = template.get_heading(level=2)
+            head_raw = self.render_children(element)
+            head_cha = helper.remove_chars(head_raw)
+            head_tag = helper.parse_as_tag(head_cha)
+            head = helper.remove_chars(head_cha, chars=["++"]).upper()
+            return temp.substitute(head=head, head_tag="", rune_tag=head_tag)
+        else:
+            return self.render_children(element) + "~\n"

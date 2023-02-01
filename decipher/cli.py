@@ -1,4 +1,5 @@
 import logging
+from pathlib import Path
 
 import click
 
@@ -12,16 +13,19 @@ def cli(log_level):
     logging.basicConfig(level=log_level.upper())
 
 
-@cli.command("rune")
-@click.argument("input", type=click.File("r"))
+@cli.command("run")
+@click.option("--type", "-t", type=click.Choice(("rune", "stdlib")), required=True)
+@click.argument("input", type=click.File("r"), required=True)
 @click.argument("output", type=click.File("w"), default="-")
-def rune(input, output):
-    """Decipher a single rune documentation markdown file."""
-    output.write(main.run(input.read()))
+def rune(type, input, output):
+    """Decipher a single markdown file."""
+    output.write(main.run(type, input.read()))
 
 
-@cli.command("all-runes")
+@cli.command("run-all")
+@click.option("--type", "-t", type=click.Choice(("rune", "stdlib")), required=True)
+@click.argument("input", type=click.Path(path_type=Path), required=True)
 @click.argument("output", type=click.File("w"), default="-")
-def all_runes(output):
-    """Decipher all pre-defined rune documentation markdown files in a directory."""
-    output.write(main.run_for_all_rune_files())
+def all_runes(type, input, output):
+    """Decipher all markdown files in current directory."""
+    output.write(main.run_all(type, input))
