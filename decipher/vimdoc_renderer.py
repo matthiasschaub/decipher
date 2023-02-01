@@ -27,14 +27,14 @@ class VimDocRenderer(Renderer):
         lines = self.render_children(element).splitlines()
         lines = [indent + line for line in lines]
         lines = "\n".join(lines)
-        return ">\n{}\n<".format(lines)
+        return ">\n{}\n<\n".format(lines)
 
     def render_code_block(self, element: "block.CodeBlock") -> str:
         indent = " " * 4
         lines = self.render_children(element).splitlines()
         lines = [indent + line for line in lines]
         lines = "\n".join(lines)
-        return ">\n{}\n<".format(lines)
+        return ">\n{}\n<\n".format(lines)
 
     def render_html_block(self, element: "block.HTMLBlock") -> str:
         try:
