@@ -28,7 +28,7 @@ def run(type_: Literal["rune", "stdlib"], text):
             markdown = Markdown(renderer=VimDocRendererRune)
         case "stdlib":
             rune_tag = ""
-            head_tag = parse_as_tag(title)
+            head_tag = ""
             head = title
             markdown = Markdown(renderer=VimDocRendererStdlib)
     temp = template.get_heading(level=1)
