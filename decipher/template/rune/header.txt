@@ -5,7 +5,7 @@
            -------------------------------------------------------
 
 Author: ~talfus-laddus
-Repository: https://git.sr.ht/~matthias_schaub/hoon-runes.vim
+Repository: https://github.com/matthiasschaub/hoon-runes.vim
 License: MIT License
 Updated: $today
 

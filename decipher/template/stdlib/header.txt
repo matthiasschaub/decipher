@@ -5,6 +5,6 @@
            -------------------------------------------------------
 
 Author: ~talfus-laddus
-Repository: https://git.sr.ht/~matthias_schaub/hoon-stdlib.vim
+Repository: https://github.com/matthiasschaub/hoon-stdlib.vim
 License: MIT License
 Updated: $today
