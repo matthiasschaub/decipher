@@ -1,10 +1,10 @@
 # Decipher Hoon Runes and Standard Library
 
-A tool to convert Markdown documentation files of Hoon Runes and Standard Library found at the [developers.urbit.org](https://developers.urbit.org) site to Vim help files.
+A tool to convert Markdown documentation files of Hoon Runes and Standard Library found at the [docs.urbit.org](https://docs.urbit.org) site to Vim help files.
 
-For the result see [hoon-runes.vim](https://git.sr.ht/~talfus-laddus/hoon-runes.vim) and [hoon-stdlib.vim](https://git.sr.ht/~talfus-laddus/hoon-stdlib.vim).
+To see take a look at [hoon-runes.vim](https://github.com/matthiasschaub/hoon-runes.vim) and [hoon-stdlib.vim](https://github.com/matthiasschaub/hoon-stdlib.vim).
 
-Reach out to `~talfus-laddus` on Urbit for anything related to this tool.
+Reach out to `~talfus-laddus` on the network for anything related to this tool.
 
 ## Installation
 
