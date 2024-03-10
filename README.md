@@ -9,7 +9,7 @@ Reach out to `~talfus-laddus` on the network for anything related to this tool.
 ## Installation
 
 ```
-pipx install git+https://git.sr.ht/~talfus-laddus/decipher
+pipx install git+https://github.com/matthiasschaub/decipher
 ```
 
 ## Usage
